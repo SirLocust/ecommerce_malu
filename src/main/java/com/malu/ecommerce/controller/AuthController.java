@@ -1,5 +1,7 @@
 package com.malu.ecommerce.controller;
 
+import com.malu.ecommerce.dto.AuthenticationResponse;
+import com.malu.ecommerce.dto.LoginRequest;
 import com.malu.ecommerce.dto.RegisterRequest;
 import com.malu.ecommerce.service.AuthService;
 
@@ -24,5 +26,10 @@ public class AuthController {
   public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest) {
     authService.signup(registerRequest);
     return new ResponseEntity<>("User Registration Successfull", HttpStatus.OK);
+  }
+
+  @PostMapping("/login")
+  public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+    return authService.login(loginRequest);
   }
 }
