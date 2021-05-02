@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
@@ -29,9 +31,10 @@ public class Product {
   private Double stock;
   private Double price;
   private String status;
-  @Temporal(TemporalType.TIMESTAMP)
+  // @Temporal(TemporalType.TIMESTAMP)
   private Instant createAT;
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "category_id")
+  @JoinColumn(name = "category_id", insertable = true, updatable = true)
+  @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
   private Category category;
 }
