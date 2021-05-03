@@ -18,6 +18,7 @@ import lombok.Data;
 @Entity
 @Table(name = "products")
 @Data
+
 public class Product {
 
   @Id
@@ -31,6 +32,8 @@ public class Product {
   private String status;
   // @Temporal(TemporalType.TIMESTAMP)
   private Instant createAT;
+
+  private String[] images;
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "category_id")
   @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })

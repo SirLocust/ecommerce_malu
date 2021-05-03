@@ -1,6 +1,7 @@
 package com.malu.ecommerce.service;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.malu.ecommerce.model.Category;
@@ -10,10 +11,10 @@ import com.malu.ecommerce.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
 @Service
 @AllArgsConstructor
-
 public class ProductServiceImpl implements ProductsService {
 
   private final ProductRepository productRepository;
@@ -29,10 +30,9 @@ public class ProductServiceImpl implements ProductsService {
     return productRepository.findById(id).orElse(null);
   }
 
-  
-
   @Override
   public Product createProduct(Product product) {
+    // System.out.println(product.getImages()[0]);
     product.setStatus("CREATED");
     product.setCreateAT(Instant.now());
     return productRepository.save(product);
