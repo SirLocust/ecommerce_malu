@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -34,7 +32,7 @@ public class Product {
   // @Temporal(TemporalType.TIMESTAMP)
   private Instant createAT;
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "category_id", insertable = true, updatable = true)
+  @JoinColumn(name = "category_id")
   @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
   private Category category;
 }

@@ -6,7 +6,9 @@ import com.malu.ecommerce.model.Category;
 
 public interface CategoryService {
 
-  public List<Category> getCategory();
+  public List<Category> getAllCategories();
+
+  
 
   public Category createCategory(Category category);
 }

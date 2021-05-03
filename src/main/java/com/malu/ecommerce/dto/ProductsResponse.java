@@ -8,5 +8,5 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ProductsResponse {
-  private ResponseEntity response;
+  private ResponseEntity<?> response;
 }
